@@ -75,6 +75,25 @@ a:hover{text-decoration:underline}
 .project-card a{margin-right:8px}
 .project-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(15,23,42,0.08)}
 
+/* Project image */
+.project-media{
+  width:100%;
+  height:160px;
+  overflow:hidden;
+  border-radius:10px;
+  margin-bottom:12px;
+  background:#f3f6ff;
+}
+.project-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform-origin:center;
+  transition:transform .4s ease;
+}
+.project-card:hover .project-media img{ transform:scale(1.06); }
+
 /* Buttons style for links */
 .btn-like{
   display:inline-block;
@@ -99,6 +118,7 @@ a:hover{text-decoration:underline}
   .projects-grid{grid-template-columns:repeat(3,1fr)}
   .container{padding:0}
   .card{padding:26px}
+  .project-media{height:140px}
 }
 
 /* Small improvements */
