@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 :root{
   --bg-gradient-start: #f8fafc;
   --bg-gradient-end: #eef2ff;
@@ -5,91 +6,104 @@
   --text: #0f172a;
   --muted: #475569;
   --accent: #2563eb;
-  --radius: 12px;
-  --shadow: 0 6px 22px rgba(15,23,42,0.08);
+  --accent-600: #1d4ed8;
+  --radius: 14px;
+  --shadow-lg: 0 10px 30px rgba(15,23,42,0.08);
+  --shadow-sm: 0 6px 16px rgba(15,23,42,0.06);
 }
-
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   color:var(--text);
-  background: linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end));
+  background: linear-gradient(160deg,var(--bg-gradient-start),var(--bg-gradient-end));
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   padding:28px 16px;
 }
-
 .container{
-  max-width:900px;
+  max-width:1100px;
   margin:0 auto;
-  padding:0 16px;
+  padding:0 20px;
 }
 
+/* Header */
 .site-header{
-  margin-bottom:20px;
+  margin-bottom:26px;
 }
-
 .site-header .container{
   display:flex;
-  flex-direction:column;
-  align-items:flex-start;
+  gap:18px;
+  align-items:center;
+  padding:12px 0;
 }
+.site-header h1{margin:0;font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:700}
+.tagline{margin:0;color:var(--muted);font-size:0.98rem}
 
-h1{
-  margin:0 0 6px 0;
-  font-size: clamp(1.5rem, 2.4vw, 2.25rem);
-  line-height:1.05;
-}
-
-.tagline{
-  margin:0;
-  color:var(--muted);
-  font-size:0.95rem;
-}
-
+/* Card baseline */
 .card{
   background:var(--card-bg);
   border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:20px;
-  margin-bottom:16px;
+  box-shadow:var(--shadow-lg);
+  padding:22px;
+  margin-bottom:18px;
 }
 
-h2{
-  margin-top:0;
-  color:var(--text);
-  font-size:1.1rem;
-}
-
-p, li{
-  color:var(--muted);
-  line-height:1.6;
-  font-size:1rem;
-}
-
-a{
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:600;
-}
+h2{margin-top:0;color:var(--text);font-size:1.15rem}
+p, li{color:var(--muted);line-height:1.65;font-size:1rem}
+a{color:var(--accent);text-decoration:none;font-weight:600}
 a:hover{text-decoration:underline}
 
-.site-footer{
-  margin-top:28px;
-  text-align:center;
-  color:var(--muted);
-  font-size:0.9rem;
+/* Projects grid */
+.projects-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-top:12px;
+}
+.project-card{
+  padding:18px;
+  border-radius:12px;
+  background:linear-gradient(180deg,#ffffff,#fbfdff);
+  box-shadow:var(--shadow-sm);
+  transition:transform .18s ease, box-shadow .18s ease;
+  border:1px solid rgba(37,99,235,0.06);
+}
+.project-card h3{margin:0 0 6px 0;font-size:1.05rem}
+.project-card p{margin:0 0 10px 0;color:var(--muted)}
+.project-card a{margin-right:8px}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(15,23,42,0.08)}
+
+/* Buttons style for links */
+.btn-like{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:10px;
+  background:var(--accent);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 6px 18px rgba(37,99,235,0.12);
+}
+.btn-like.secondary{background:#eef2ff;color:var(--accent);border:1px solid rgba(37,99,235,0.08)}
+
+/* Footer */
+.site-footer{margin-top:28px;text-align:center;color:var(--muted);font-size:0.95rem}
+
+/* Responsive layout */
+@media(min-width:700px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:1000px){
+  .projects-grid{grid-template-columns:repeat(3,1fr)}
+  .container{padding:0}
+  .card{padding:26px}
 }
 
-/* Responsive */
-@media (min-width:900px){
-  .container{padding:0}
-  .site-header .container{
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-  }
-  .card{padding:28px}
-}
+/* Small improvements */
+ul{padding-left:1.15rem}
+small{opacity:0.9}
+
+/* Accessibility helpers */
+a:focus{outline:3px solid rgba(37,99,235,0.18);outline-offset:3px}
